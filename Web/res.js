@@ -66,16 +66,6 @@ if (type === 'CGPA') {
     cgpaBtn.className = 'btn btn-info';
 } else if (type === 'SGPA') {
     sgpaBtn.className = 'btn btn-info';
-    document.getElementById('alerty').innerHTML += `
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <div class="container text-center mx-auto">
-        Around <strong>225</strong> students have got supply in one or more than one subject this sem. I had to include them.
-        <br>
-        This may have resulted in some errors in the SGPA ranking.
-    </div>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-`
 }
 arraySubs.map((item) => {
     if (item.code === subject) {
@@ -85,7 +75,7 @@ arraySubs.map((item) => {
     }
 });
 
-const fileName = `Ranked-${subject}-${type}-Sem5.json`
+const fileName = `Ranked-${subject}-${type}-Sem6.json`
 
 cgpaBtn.addEventListener('click', () => {
     window.location.href = `results.html?subject=${subject}&type=CGPA`;
