@@ -1,4 +1,7 @@
 import json
+import fileinput
+
+
 def passedStudentsOnly():
     with open("_rawData.txt", "r",encoding="utf-8") as info:
         for line in info:
@@ -52,12 +55,13 @@ def main():
         for index, key in enumerate(sortedList):
             f = open(f"Ranked-{subjectCodes[subjectInt]}-{rankingCriteria[criteriaInt]}-Sem6.txt", "a")
             listToStr = ' '.join(map(str, resultsDict[key]))
+            jsonData = json.dumps(resultsDict[key],indent=4)
+            js = open(f"Ranked-{subjectCodes[subjectInt]}-{rankingCriteria[criteriaInt]}-Sem6.json", "a")
+            js.write(f"{jsonData},\n")
             f.write(f"{listToStr}\n")
+            js.close()
             f.close()
-        jsonData = json.dumps(resultsDict,indent=4)
-        js = open(f"Ranked-{subjectCodes[subjectInt]}-{rankingCriteria[criteriaInt]}-Sem6.json", "a")
-        js.write(f"{jsonData}")
-        js.close()
+
 
 # passedStudentsOnly()
 main()
